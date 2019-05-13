@@ -1,0 +1,158 @@
+@-webkit-keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+nav ul {
+    margin: 1rem 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+}
+
+nav a {
+    margin: 0 1rem;
+    color: #566B78;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: flex-start;
+}
+
+.app>* {
+    display: none;
+}
+
+.app>*:last-child {
+    display: block;
+}
+
+.app>*:target {
+    display: block;
+    -webkit-animation: fade 300ms linear 1;
+    animation: fade 300ms linear 1;
+}
+
+.app>*:target~* {
+    display: none;
+}
+
+body {
+    background-color: #DDDDDD;
+    color: #566B78;
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+strong {
+    color: #333;
+}
+
+a {
+    color: #000000;
+}
+
+header {
+    background-color: gray;
+    line-height: 1.2;
+    padding: 8vw 2em;
+    text-align: center;
+}
+
+header h1 {
+    color: #FFFFFF;
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+header a {
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    border-radius: 4px;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    padding: 1em 2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: none 200ms;
+    transition-property: color, background, border;
+}
+
+header a:hover {
+    background: crimson;
+    border-color: crimson;
+}
+
+.vj1-header {
+    background-image: linear-gradient(90deg, #aa4b6b, #6b6b83, #3b8d99);
+}
+
+.vj1-header a:hover {
+    background: rgb(149, 20, 175);
+    border-color: rgb(149, 20, 175);
+}
+
+.vj2-header {
+    background-image: linear-gradient(90deg, #0F2027, #203A43, #2C5364);
+}
+
+.vj2-header a:hover {
+    background: #009554;
+    border-color: #009554;
+}
+
+.vj3-header {
+    background-image: linear-gradient(90deg, #8360c3, #2ebf91);
+}
+
+.vj3-header a:hover {
+    background: rgb(61, 139, 241);
+    border-color: rgb(61, 139, 241);
+}
+
+.vj4-header {
+    background-image: linear-gradient(90deg, #ad5389, #3c1053);
+}
+
+.vj4-header a:hover {
+    background: #ffd452;
+    border-color: #ffd452;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 50em;
+    padding: 4em 2em;
+    text-align: center;
+    font-size: larger;
+}
+
+.container h1 {
+    text-shadow: 2px 1px rgb(129, 129, 248);
+}

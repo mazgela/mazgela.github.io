@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> My BMI </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center"> BODY MASS INDEX CALCULATOR </div>
+            <div class="card-body">
+                <div class="w-50 m-auto text-center">
+                    <div class="form-group">
+                        <label for="weight"> Weight: </label>
+                        <input type="number" placeholder="Weight in KG" required id="weight" class="form-control text-center">
+                    </div>
+                    <div class="form-group">
+                        <label for="height"> Height: </label>
+                        <input type="number" placeholder="Height in CM" required id="height" class="form-control text-center">
+                    </div>
+                    <div class="text-center">
+                        <button id="check" class="btn btn-success"> Check your BMI </button>
+                    </div>
+                </div>
+                <br>
+                <h2 id="val" class="text-center"></h2>
+                <div id="res" class="imgResult"></div>
+                <h4 class="text-center" id="str"></h4>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <script>
+        $(document).ready(() => {
+            $("#check").click(getbmivalue);
+        });
+
+        function getbmivalue() {
+            let resDiv = $("#res");
+            let h2 = $("#val");
+
+            resDiv.find(":first-child").remove();
+
+            let height = $('#height').val();
+            let weight = $('#weight').val();
+
+            height = height / 100; // height in meters
+
+            let newbmivalue = weight / (Math.pow(height, 2));
+            newbmivalue = Math.round(newbmivalue);
+
+
+            let imgSrc = "";
+            let result = '';
+            if (newbmivalue < 18.5) {
+                result = 'Underweight';
+                imgSrc = "underweight.png";
+            } else if (newbmivalue < 24.5) {
+                result = 'Normal';
+                imgSrc = "normal.png";
+            } else if (newbmivalue < 29.5) {
+                result = 'Overweight';
+                imgSrc = "overweight.png";
+            } else if (newbmivalue < 33.5) {
+                result = 'Obese';
+                imgSrc = "obese.png";
+            } else {
+                result = 'Extreme obese';
+                imgSrc = "extreme-obese.png";
+            }
+
+            let img = $("<img height='200' alt='Bmi'>");
+            img.attr("src", imgSrc);
+            resDiv.append(img);
+            $("#str").text(result);
+
+            h2.text("BMI: " + parseFloat(newbmivalue).toFixed(2));
+        }
+    </script>
+
+</body>
+
+</html>

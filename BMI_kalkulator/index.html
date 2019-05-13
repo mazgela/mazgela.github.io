@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center"> BMI Calculator </div>
+            <div class="card-body">
+                <div class="w-50 m-auto">
+                    <div class="form-group">
+                        <label> Weight: </label>
+                        <input type="number" placeholder="Weight in KG" required id="weight" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label> Height: </label>
+                        <input type="number" placeholder="Height in CM" required id="height" class="form-control">
+                    </div>
+                    <div>
+                        <button onclick="getbmivalue()" class="btn btn-success">Check your BMI </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center"> A healthy BMI ranges between 19 and 25.</div>
+
+        </div>
+        <h2 id="val" class="text-center"></h2>
+        <div id="res" class="imgResult"></div>
+        <h4 class="text-center" id="str"></h4>
+
+    </div>
+    <script>
+        function getbmivalue() {
+            let resDiv = document.getElementById("res");
+            let h2 = document.getElementById("val");
+
+            let child = resDiv.firstChild;
+            if (child) {
+                resDiv.firstElementChild.remove();
+            }
+
+            var weight = document.getElementById('weight').value;
+            var height = document.getElementById('height').value;
+
+            height = height / 100; // height in meters
+
+            var newbmivalue = weight / (Math.pow(height, 2));
+            newbmivalue = Math.round(newbmivalue);
+
+
+            let imgSrc = "";
+            let result = '';
+            if (newbmivalue < 18.5) {
+                result = 'Underweight';
+                imgSrc = "underweight.png";
+            } else if (newbmivalue < 24.5) {
+                result = 'Normal';
+                imgSrc = "normal.png";
+            } else if (newbmivalue < 29.5) {
+                result = 'Overweight';
+                imgSrc = "overweight.png";
+            } else if (newbmivalue < 33.5) {
+                result = 'Obese';
+                imgSrc = "obese.png";
+            } else {
+                result = 'Extreme obese';
+                imgSrc = "extreme-obese.png";
+            }
+
+            let img = document.createElement("img");
+            img.src = imgSrc;
+            img.height = 200;
+            img.alt = "Bmi";
+            resDiv.appendChild(img);
+            document.getElementById("str").innerHTML = result;
+
+            h2.innerHTML = "BMI: " + parseFloat(newbmivalue).toFixed(2);
+        }
+    </script>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

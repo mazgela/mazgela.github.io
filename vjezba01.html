@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+body {
+  background-color:#F0FFFF;
+  text-align: center;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 50px;
+  color: #41b3a3;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  color: #41b3a3;
+}
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  color: ghostwhite;
+  margin-top: 75px;
+  margin-bottom: auto;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%; 
+  display: grid;
+  /* Define Auto Row size */
+  grid-auto-rows: 200px; 
+  /*Define our columns */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  grid-gap: 50px;
+}
+
+.column{
+    display: inline-block;
+    border: 1px solid;
+    border-style: hidden;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 5px 10px 5px  #888888;
+    animation-name: example;
+    animation-duration: 4s;
+}
+
+@keyframes example {
+  from {background-color: #005668;}
+  to {background-color: #ffb749;}
+}
+</style>
+<body>
+    <h1>Responsive 4 Column Layout</h1>
+    <br>
+    <p>Programski alati III - Zadatak 1</p>
+    <br>
+    <div class="wrapper">
+        <div class="column" style="background-color: #0b0e30;">
+            <h2>Div 1</h2>
+        </div>
+        <div class="column" style="background-color: #01b9ff;">
+            <h2>Div 2</h2>
+        </div>
+        <div class="column" style="background-color: #0b0e30;">
+            <h2>Div 3</h2>
+        </div>
+        <div class="column" style="background-color: #01b9ff;">
+            <h2>Div 4</h2>
+        </div>
+    </div>
+    <br>
+    <br>
+    <p> Izradila: Martina Žgela </p>
+</body>  
+</html>
